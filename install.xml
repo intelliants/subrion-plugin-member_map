@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="member_map">
+	<title>Members Map</title>
+	<summary>This plugin allows administrators to watch online users on Google Map</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>4.1.0</version>
+	<date>2017-02-13</date>
+	<compatibility>4.1</compatibility>
+
+	<phrases>
+		<phrase category="admin" key="online_members_map">Member's Locations</phrase>
+	</phrases>
+
+	<hooks>
+		<hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="plugins/member_map/includes/hook.adminDashboardStatistics.php"><![CDATA[]]></hook>
+		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="plugins/member_map/templates/admin/map.tpl"><![CDATA[]]></hook>
+	</hooks>
+</plugin>
