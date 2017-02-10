@@ -13,7 +13,7 @@
 	</phrases>
 
 	<hooks>
-		<hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="plugins/member_map/includes/hook.adminDashboardStatistics.php"><![CDATA[]]></hook>
-		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="plugins/member_map/templates/admin/map.tpl"><![CDATA[]]></hook>
+		<hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="modules/member_map/includes/hook.adminDashboardStatistics.php"><![CDATA[]]></hook>
+		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="modules/member_map/templates/admin/map.tpl"><![CDATA[]]></hook>
 	</hooks>
 </plugin>

@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDbz0xfgjrFJjceGiGXtE4_JKX9buZGyOU&sensor=false"></script>
-	{ia_add_media files='js:_IA_URL_plugins/member_map/js/admin/index'}
+	{ia_add_media files='js:_IA_URL_modules/member_map/js/admin/index'}
 
 {ia_add_js}
 	var membersList = [];
