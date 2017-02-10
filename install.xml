@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<plugin name="member_map">
+<module type="plugin" name="member_map">
 	<title>Members Map</title>
 	<summary>This plugin allows administrators to watch online users on Google Map</summary>
 	<author>Intelliants LLC</author>
@@ -16,4 +16,4 @@
 		<hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="modules/member_map/includes/hook.adminDashboardStatistics.php"><![CDATA[]]></hook>
 		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="modules/member_map/templates/admin/map.tpl"><![CDATA[]]></hook>
 	</hooks>
-</plugin>
+</module>
