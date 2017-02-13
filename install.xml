@@ -14,6 +14,6 @@
 
 	<hooks>
 		<hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="hook.adminDashboardStatistics"><![CDATA[]]></hook>
-		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="modules/member_map/templates/admin/map.tpl"><![CDATA[]]></hook>
+		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="map"><![CDATA[]]></hook>
 	</hooks>
 </module>
