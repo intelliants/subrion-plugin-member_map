@@ -1,4 +1,4 @@
-{if isset($onlineMembers) && $onlineMembers}
+{if !empty($onlineMembers)}
 	<div class="widget widget-large" id="widget-website-visits">
 		<div class="widget-header"><i class="i-users"></i> {lang key='online_members_map'}
 			<ul class="nav nav-pills pull-right">

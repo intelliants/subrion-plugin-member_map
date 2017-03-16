@@ -32,7 +32,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 		{
 			$userName = $entry['username'];
 			$ip = long2ip($entry['ip']);
-			$entry = json_decode(file_get_contents("http://api.ipinfodb.com/v3/ip-city/?key=89fe0a129bbdd51694b0dd3997f7db74139ed3124771ba2f2104d392e6cf29ad&ip={$ip}&format=json"), true);
+			$entry = json_decode(file_get_contents("https://api.ipinfodb.com/v3/ip-city/?key={$iaCore->get('member_map_api_key')}&ip={$ip}&format=json"), true);
 			$entry['username'] = $userName;
 		}
 	}

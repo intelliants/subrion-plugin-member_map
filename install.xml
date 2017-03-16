@@ -5,8 +5,11 @@
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
 	<version>4.1.0</version>
-	<date>2017-02-13</date>
+	<date>2017-03-16</date>
 	<compatibility>4.1</compatibility>
+
+	<config group="miscellaneous" name="member_map_divider" type="divider" description="Members Map">mgMathCaptcha</config>
+	<config group="miscellaneous" name="member_map_api_key" type="text" description="API Key"><![CDATA[]]></config>
 
 	<phrases>
 		<phrase category="admin" key="online_members_map">Member's Locations</phrase>
