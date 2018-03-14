@@ -2,7 +2,7 @@
 /******************************************************************************
  *
  * Subrion - open source content management system
- * Copyright (C) 2017 Intelliants, LLC <https://intelliants.com>
+ * Copyright (C) 2018 Intelliants, LLC <https://intelliants.com>
  *
  * This file is part of Subrion.
  *
@@ -26,16 +26,21 @@
 
 if (iaView::REQUEST_HTML == $iaView->getRequestType())
 {
-	if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo())
-	{
-		foreach ($onlineMembers as &$entry)
-		{
-			$userName = $entry['username'];
-			$ip = long2ip($entry['ip']);
-			$entry = json_decode(file_get_contents("https://api.ipinfodb.com/v3/ip-city/?key={$iaCore->get('member_map_api_key')}&ip={$ip}&format=json"), true);
-			$entry['username'] = $userName;
-		}
-	}
+    if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo())
+    {
+        foreach ($onlineMembers as &$entry)
+        {
+            $userName = $entry['username'];
+            $ip = long2ip($entry['ip']);
 
-	$iaView->assign('onlineMembers', $onlineMembers);
+            $url = "https://api.ipinfodb.com/v3/ip-city/?key={$iaCore->get('member_map_api_key')}&ip={$ip}&format=json";
+
+            $curl_response = iaUtil::getPageContent($url);
+            $entry = json_decode($curl_response, true);
+
+            $entry['username'] = $userName;
+        }
+    }
+
+    $iaView->assign('onlineMembers', $onlineMembers);
 }
