@@ -8,9 +8,6 @@
     <date>2018-03-14</date>
     <compatibility>4.2</compatibility>
 
-    <config group="miscellaneous" name="member_map_divider" type="divider" description="Members Map">Members Map</config>
-    <config group="miscellaneous" name="member_map_api_key" type="text" description="API Key"><![CDATA[]]></config>
-
     <phrases>
         <phrase category="admin" key="online_members_map">Member's Locations</phrase>
     </phrases>

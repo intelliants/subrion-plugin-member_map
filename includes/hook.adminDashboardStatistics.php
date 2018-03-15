@@ -26,14 +26,14 @@
 
 if (iaView::REQUEST_HTML == $iaView->getRequestType()) {
 
-    $api_key = $iaCore->get('member_map_api_key');
+    $api_key = $iaCore->get('maps_api_key');
 
     if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo()) {
         foreach ($onlineMembers as &$entry) {
             $userName = $entry['username'];
             $ip = long2ip($entry['ip']);
 
-            $url = "https://api.ipinfodb.com/v3/ip-city/?key={$iaCore->get('member_map_api_key')}&ip={$ip}&format=json";
+            $url = "https://api.ipinfodb.com/v3/ip-city/?key={$api_key}&ip={$ip}&format=json";
 
             $curl_response = iaUtil::getPageContent($url);
             $entry = json_decode($curl_response, true);
