@@ -24,12 +24,12 @@
  *
  ******************************************************************************/
 
-if (iaView::REQUEST_HTML == $iaView->getRequestType())
-{
-    if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo())
-    {
-        foreach ($onlineMembers as &$entry)
-        {
+if (iaView::REQUEST_HTML == $iaView->getRequestType()) {
+
+    $api_key = $iaCore->get('member_map_api_key');
+
+    if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo()) {
+        foreach ($onlineMembers as &$entry) {
             $userName = $entry['username'];
             $ip = long2ip($entry['ip']);
 
@@ -39,8 +39,11 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
             $entry = json_decode($curl_response, true);
 
             $entry['username'] = $userName;
+
         }
     }
 
+
+    $iaView->assign('api_key', $api_key);
     $iaView->assign('onlineMembers', $onlineMembers);
 }
