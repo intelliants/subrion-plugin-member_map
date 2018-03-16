@@ -2,7 +2,7 @@
 /******************************************************************************
  *
  * Subrion - open source content management system
- * Copyright (C) 2017 Intelliants, LLC <https://intelliants.com>
+ * Copyright (C) 2018 Intelliants, LLC <https://intelliants.com>
  *
  * This file is part of Subrion.
  *
@@ -24,18 +24,26 @@
  *
  ******************************************************************************/
 
-if (iaView::REQUEST_HTML == $iaView->getRequestType())
-{
-	if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo())
-	{
-		foreach ($onlineMembers as &$entry)
-		{
-			$userName = $entry['username'];
-			$ip = long2ip($entry['ip']);
-			$entry = json_decode(file_get_contents("https://api.ipinfodb.com/v3/ip-city/?key={$iaCore->get('member_map_api_key')}&ip={$ip}&format=json"), true);
-			$entry['username'] = $userName;
-		}
-	}
+if (iaView::REQUEST_HTML == $iaView->getRequestType()) {
 
-	$iaView->assign('onlineMembers', $onlineMembers);
+    $api_key = $iaCore->get('maps_api_key');
+
+    if ($onlineMembers = $iaCore->factory('users')->getVisitorsInfo()) {
+        foreach ($onlineMembers as &$entry) {
+            $userName = $entry['username'];
+            $ip = long2ip($entry['ip']);
+
+            $url = "https://api.ipinfodb.com/v3/ip-city/?key={$api_key}&ip={$ip}&format=json";
+
+            $curl_response = iaUtil::getPageContent($url);
+            $entry = json_decode($curl_response, true);
+
+            $entry['username'] = $userName;
+
+        }
+    }
+
+
+    $iaView->assign('api_key', $api_key);
+    $iaView->assign('onlineMembers', $onlineMembers);
 }

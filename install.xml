@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <module type="plugin" name="member_map">
-	<title>Members Map</title>
-	<summary>This plugin allows administrators to watch online users on Google Map</summary>
-	<author>Intelliants LLC</author>
-	<contributor>Intelliants LLC</contributor>
-	<version>4.1.0</version>
-	<date>2017-03-16</date>
-	<compatibility>4.1</compatibility>
+    <title>Members Map</title>
+    <summary>This plugin allows administrators to watch online users on Google Map</summary>
+    <author>Intelliants LLC</author>
+    <contributor>Intelliants LLC</contributor>
+    <version>4.2.0</version>
+    <date>2018-03-14</date>
+    <compatibility>4.2</compatibility>
 
-	<config group="miscellaneous" name="member_map_divider" type="divider" description="Members Map">mgMathCaptcha</config>
-	<config group="miscellaneous" name="member_map_api_key" type="text" description="API Key"><![CDATA[]]></config>
+    <phrases>
+        <phrase category="admin" key="online_members_map">Member's Locations</phrase>
+    </phrases>
 
-	<phrases>
-		<phrase category="admin" key="online_members_map">Member's Locations</phrase>
-	</phrases>
-
-	<hooks>
-		<hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="hook.adminDashboardStatistics"><![CDATA[]]></hook>
-		<hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="map"><![CDATA[]]></hook>
-	</hooks>
+    <hooks>
+        <hook name="adminDashboardStatistics" type="php" page_type="admin" pages="index" filename="hook.adminDashboardStatistics.php"><![CDATA[]]></hook>
+        <hook name="smartyDashboardContentRight" type="smarty" pages="index" filename="map.tpl"><![CDATA[]]></hook>
+    </hooks>
 </module>
